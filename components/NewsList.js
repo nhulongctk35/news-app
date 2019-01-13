@@ -32,7 +32,7 @@ export function SingleNew({ data }) {
   );
 }
 
-export default function NewList({ news = [] }) {
+export default function NewsList({ news = [] }) {
   return (
     <ul className="u-non-list-style">
       {news.map((singleNew, index) => (

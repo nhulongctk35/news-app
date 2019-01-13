@@ -1,7 +1,8 @@
 import React from 'react';
-import NewList from './news';
+
 import './../css/main.css';
 import Sidebar from '../components/Sidebar';
+import NewsList from '../components/NewsList';
 import newService from '../services/new.service';
 
 class App extends React.Component {
@@ -38,7 +39,7 @@ class App extends React.Component {
             <Sidebar onSelect={this.handleSourceChange} />
           </div>
           <div id="main-content">
-            <NewList news={this.state.news} />
+            <NewsList news={this.state.news} />
           </div>
         </div>
       </div>
