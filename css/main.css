@@ -1,0 +1,62 @@
+html,
+body {
+    height: 100%;
+    line-height: 1.5;
+}
+
+body {
+    font-family: 'Inconsolata', monospace;
+    background-color: #10171e;
+    color: #fff;
+    font-size: 20px;
+    margin: 0;
+}
+
+p {
+    line-height: 1.2em;
+    margin: 0 0 30px;
+}
+
+img,
+select {
+    width: 100%;
+}
+
+#content-wrapper {
+    padding: 0 15px;
+    max-width: 1200px;
+    margin: 45px auto 0;
+
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 220px auto;
+    grid-column-gap: 45px;
+}
+
+
+.new-item {
+}
+
+.new-item a {
+    text-decoration: none;
+    color: #E81C4F;
+}
+
+.new-item__title {
+    margin-top: 0;
+}
+
+.new-item--bottom {
+    border-bottom: 1px solid #303030;
+    margin-bottom: 30px;
+}
+
+.u-collor-primary {
+    color: #E81C4F;
+}
+
+.u-non-list-style {
+    list-style-type: none;
+}
