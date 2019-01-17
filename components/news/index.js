@@ -6,9 +6,11 @@ import { Consumer } from '../../pages/newsContext';
 function NextLink({ id, href, label, data }) {
   return (
     <Link as={id} href={href}>
-      <Consumer>
-        {({ onClick }) => <a onClick={() => onClick(data)}>{label}</a>}
-      </Consumer>
+      <div>
+        <Consumer>
+          {({ onClick }) => <a onClick={() => onClick(data)}>{label}</a>}
+        </Consumer>
+      </div>
     </Link>
   );
 }

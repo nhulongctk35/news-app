@@ -49,7 +49,6 @@ class App extends React.Component {
 
   handleClicking = data => {
     this.props.dispatch(setActive(data));
-    this.props.router.push('/new');
   };
 
   render() {
