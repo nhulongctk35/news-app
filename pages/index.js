@@ -1,11 +1,16 @@
 import './../css/main.css';
+
 import React from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withRouter } from 'next/router';
+
 import NewList from '../components/news';
 import Sidebar from '../components/Sidebar';
-import newService from '../services/new.service';
 import { loadData, loadDataSuccess, setActive } from '../actions';
 import { Provider } from './newsContext';
+
+import newService from '../services/new.service';
 
 function Loading() {
   return (
@@ -44,6 +49,7 @@ class App extends React.Component {
 
   handleClicking = data => {
     this.props.dispatch(setActive(data));
+    this.props.router.push('/new');
   };
 
   render() {
@@ -75,4 +81,7 @@ function mapStateToProps({ news, loading }) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default compose(
+  connect(mapStateToProps),
+  withRouter
+)(App);
