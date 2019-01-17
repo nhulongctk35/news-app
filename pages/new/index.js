@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { withRouter } from 'next/router';
 
-const NewDetails = ({ data = {} }) => {
+const NewDetails = ({ data }) => {
   return (
     <div className="new-item new-item--bottom">
       <a className="new-item__thumb" href={data.urlToImage} target="_blank">
@@ -19,4 +21,13 @@ const NewDetails = ({ data = {} }) => {
   );
 };
 
-export default withRouter(NewDetails);
+function mapStateToProps({ active }) {
+  return {
+    data: active,
+  };
+}
+
+export default compose(
+  connect(mapStateToProps),
+  withRouter
+)(NewDetails);
