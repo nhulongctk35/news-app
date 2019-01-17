@@ -1,3 +1,4 @@
+import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document';
 
 export default class MyDocument extends Document {
@@ -19,7 +20,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className="custom_class">
+        <body>
           <Main />
           <NextScript />
         </body>

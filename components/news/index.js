@@ -1,10 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 
-function NextLink({ id, href, label }) {
+import { Consumer } from '../../pages/newsContext';
+
+function NextLink({ id, href, label, data }) {
   return (
     <Link as={id} href={href}>
-      <a>{label}</a>
+      <Consumer>
+        {({ onClick }) => <a onClick={() => onClick(data)}>{label}</a>}
+      </Consumer>
     </Link>
   );
 }
@@ -25,6 +29,7 @@ export function SingleNew({ data }) {
           label={data.title}
           id={generateTitleLink(data.title)}
           href="/new"
+          data={data}
         />
       </h2>
       <p className="new-item__content">{data.description}</p>
