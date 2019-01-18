@@ -42,9 +42,46 @@ const NEW_RESOURCE = [
   },
 ];
 
+function Nav() {
+  return (
+    <div id="nav-link">
+      <h3 className="u-collor-primary">Long's Link</h3>
+      <ul className="u-non-list-style u-no-margin">
+        <li>
+          <a
+            className="u-collor-white"
+            href="https://github.com/nhulongctk35"
+            target="_blank"
+          >
+            Github
+          </a>
+        </li>
+        <li>
+          <a
+            className="u-collor-white"
+            href="https://www.upwork.com/o/profiles/users/_~01d9ec4cd0552ef4c9/"
+            target="_blank"
+          >
+            Upwork
+          </a>
+        </li>
+        <li>
+          <a
+            className="u-collor-white"
+            href="https://nhulongctk35.github.io/github.io/"
+            target="_blank"
+          >
+            Blog
+          </a>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
 const Sidebar = ({ onSelect }) => {
   return (
-    <div>
+    <aside>
       <h3 className="u-collor-primary">Select News Source</h3>
       <select
         name="new category"
@@ -60,7 +97,8 @@ const Sidebar = ({ onSelect }) => {
           </option>
         ))}
       </select>
-    </div>
+      <Nav />
+    </aside>
   );
 };
 

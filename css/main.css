@@ -54,9 +54,30 @@ select {
 }
 
 .u-collor-primary {
-    color: #E81C4F;
+    color: #E81C4F !important;
 }
 
 .u-non-list-style {
     list-style-type: none;
+}
+
+.u-collor-white {
+    color: #fff !important;
+}
+
+#nav-link > ul {
+    margin: 0;
+    padding: 0;
+}
+
+#nav-link > ul > li {
+    padding: 12px 8px;
+}
+
+#nav-link > ul > li:hover {
+    background: #282c34;
+}
+
+#nav-link > ul > li > a {
+    display: block;
 }
