@@ -1,14 +1,9 @@
 import './../css/main.css';
 
 import React from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { withRouter } from 'next/router';
 
 import NewList from '../components/news';
 import Sidebar from '../components/Sidebar';
-import { loadData, loadDataSuccess, setActive } from '../actions';
-import { Provider } from './newsContext';
 
 import newService from '../services/new.service';
 
@@ -23,6 +18,7 @@ function Loading() {
 class App extends React.Component {
   state = {
     source: 'google-news',
+    news: null,
   };
 
   handleSourceChange = newSource => {
@@ -41,14 +37,9 @@ class App extends React.Component {
   }
 
   fetchNews = () => {
-    this.props.dispatch(loadData());
     newService
       .getAlls(this.state.source)
-      .then(data => this.props.dispatch(loadDataSuccess(data)));
-  };
-
-  handleClicking = data => {
-    this.props.dispatch(setActive(data));
+      .then(data => this.setState({ news: data }));
   };
 
   render() {
@@ -59,13 +50,7 @@ class App extends React.Component {
             <Sidebar onSelect={this.handleSourceChange} />
           </div>
           <div id="main-content">
-            {this.props.loading ? (
-              <Loading />
-            ) : (
-              <Provider value={{ onClick: this.handleClicking }}>
-                <NewList news={this.props.news} />
-              </Provider>
-            )}
+            {this.state.news ? <NewList news={this.state.news} /> : <Loading />}
           </div>
         </div>
       </div>
@@ -73,14 +58,4 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps({ news, loading }) {
-  return {
-    news,
-    loading,
-  };
-}
-
-export default compose(
-  connect(mapStateToProps),
-  withRouter
-)(App);
+export default App;
