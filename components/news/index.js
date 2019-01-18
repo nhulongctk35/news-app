@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 import { Consumer } from '../../pages/newsContext';
 
-function NextLink({ id, href, label, data }) {
+function NextLink({ id, label, data }) {
   return (
-    <Link as={id} href={href}>
+    <Link href={`new/${id}`}>
       <div>
         <Consumer>
           {({ onClick }) => <a onClick={() => onClick(data)}>{label}</a>}
@@ -30,7 +30,6 @@ export function SingleNew({ data }) {
         <NextLink
           label={data.title}
           id={generateTitleLink(data.title)}
-          href="/new"
           data={data}
         />
       </h2>
