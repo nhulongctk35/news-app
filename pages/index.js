@@ -6,6 +6,7 @@ import NewList from '../components/news';
 import Sidebar from '../components/Sidebar';
 
 import newService from '../services/new.service';
+import * as serviceWorker from '../serviceWorker';
 
 function Loading() {
   return (
@@ -34,6 +35,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.fetchNews();
+    serviceWorker.register();
   }
 
   fetchNews = () => {
