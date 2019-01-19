@@ -46,7 +46,7 @@ function Nav() {
   return (
     <div id="nav-link">
       <h3 className="u-collor-primary">Long's Link</h3>
-      <ul className="u-non-list-style u-no-margin">
+      <ul className="u-non-list-style u-no-margin d-flex">
         <li>
           <a
             className="u-collor-white"
@@ -79,24 +79,34 @@ function Nav() {
   );
 }
 
+function NewSource({ onSelect }) {
+  return (
+    <div id="new-source">
+      <h3 className="u-collor-primary">Select News Source</h3>
+      <div className="d-inline">
+        <select
+          name="new category"
+          id="new-category"
+          onChange={event => event.target.value && onSelect(event.target.value)}
+        >
+          <option value="" disabled>
+            Please select news source ...
+          </option>
+          {NEW_RESOURCE.map(resource => (
+            <option key={resource.value} value={resource.value}>
+              {resource.label}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+}
+
 const Sidebar = ({ onSelect }) => {
   return (
-    <aside>
-      <h3 className="u-collor-primary">Select News Source</h3>
-      <select
-        name="new category"
-        id="new-category"
-        onChange={event => event.target.value && onSelect(event.target.value)}
-      >
-        <option value="" disabled>
-          Please select news source ...
-        </option>
-        {NEW_RESOURCE.map(resource => (
-          <option key={resource.value} value={resource.value}>
-            {resource.label}
-          </option>
-        ))}
-      </select>
+    <aside id="left-side">
+      <NewSource onSelect={onSelect} />
       <Nav />
     </aside>
   );
