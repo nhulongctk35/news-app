@@ -15,7 +15,11 @@ body {
 p {
     line-height: 1.4em;
     margin: 0 0 30px;
-    font-size: 30px;
+    font-size: 20px;
+}
+
+ul {
+    padding: 0;
 }
 
 img,
@@ -26,7 +30,6 @@ select {
 #content-wrapper {
     padding: 0 15px;
     max-width: 1200px;
-    margin: 45px auto 0;
 }
 
 .layout {
@@ -51,7 +54,7 @@ select {
 
 .new-item__title {
     margin-top: 0;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .new-item--bottom {
@@ -104,12 +107,8 @@ select {
 }
 
 @media only screen  and (min-width : 1224px) {
-    p {
-        font-size: 20px;
-    }
-
-    .new-item__title {
-        font-size: 30px;
+    #content-wrapper {
+        margin: 45px auto 0;
     }
 
     .layout {
