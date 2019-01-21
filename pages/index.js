@@ -7,14 +7,7 @@ import Sidebar from '../components/Sidebar';
 
 import newService from '../services/new.service';
 import * as serviceWorker from '../serviceWorker';
-
-function Loading() {
-  return (
-    <div id="loading">
-      <p>Loading ...</p>
-    </div>
-  );
-}
+import Spinner from '../components/Spinner';
 
 class App extends React.Component {
   state = {
@@ -52,7 +45,11 @@ class App extends React.Component {
             <Sidebar onSelect={this.handleSourceChange} />
           </div>
           <div id="main-content">
-            {this.state.news ? <NewList news={this.state.news} /> : <Loading />}
+            {this.state.news ? (
+              <NewList news={this.state.news} />
+            ) : (
+              <Spinner size={20} />
+            )}
           </div>
         </div>
       </div>
